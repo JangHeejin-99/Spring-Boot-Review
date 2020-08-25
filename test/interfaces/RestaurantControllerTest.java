@@ -23,8 +23,15 @@ public class RestaurantControllerTest { // 직접 의존성을 주입해주어�
     @Autowired
     private MockMvc mvc;
 
-    @MockBean
+    
+    @SpyBean(RestaurantService.class) // controller에 원하는 객체 주입 가능
     private RestaurantService restaurantService;
+
+    @SpyBean(RestaurantRepositoryImpl.class)
+    private RestaurantRepository restaurantRepository;
+
+    @SpyBean(MenuItemRepositoryImpl.class)
+    private MenuItemRepository menuItemRepository;
 
 
     @Test
